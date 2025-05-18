@@ -129,7 +129,7 @@ const BirthdayGallery: React.FC = () => {
             </div>
           )} */}
 
-     {set.layout === "gallery" && (
+    {set.layout === "gallery" && (
   <div className="min-h-screen bg-gradient-to-br from-pink-100 to-yellow-100 py-12 px-4">
     <h2 className="text-4xl font-extrabold text-center text-pink-700 mb-12 drop-shadow-lg">
       🎈 Magical Moments
@@ -138,12 +138,12 @@ const BirthdayGallery: React.FC = () => {
       {set.images.map((img, i) => (
         <div
           key={i}
-          className="relative w-64 h-72 bg-white rounded-xl p-3 shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-rotate-1"
+          className="relative w-64 h-72 bg-white rounded-xl p-3 shadow-2xl transform transition-transform duration-500 hover:scale-105 hover:-rotate-1 animate-float"
         >
           <img
             src={img}
             alt={`Memory ${i}`}
-            className="w-full h-full object-cover rounded-xl border-4 border-pink-200 shadow-inner"
+            className="w-full h-full object-cover rounded-xl border-4 border-pink-300 shadow-inner animate-glow"
           />
           <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-pink-600 font-semibold bg-white px-3 py-1 rounded-full shadow mt-2">
             🎁 Memory #{i + 1}
@@ -153,6 +153,7 @@ const BirthdayGallery: React.FC = () => {
     </div>
   </div>
 )}
+
 
 
 
