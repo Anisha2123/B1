@@ -38,11 +38,11 @@ import "../App.css";
 
 
 const sets = [
-  { title: "💕 Childhood Vibes", images: [i1, i2, i3, i4, i5], layout: "columns" },
-  { title: "🎊 Friends & Fun", images: [i6, i7, i8, i9, i10], layout: "grid" },
-  { title: "🌈 Family Time", images: [i11, i12, i13, i14, i15], layout: "carousel" },
-  { title: "📸 Candid Clicks", images: [i16, i17, i18, i19, i20], layout: "masonry" },
-  { title: "🎁 Special Moments", images: [i21, i22, i23], layout: "gallery" },
+  { title: "💕 Childhood Vibes", images: [i16, i17, i18, i19, i20,i21], layout: "columns" },
+  // { title: "🎊 Friends & Fun", images: [], layout: "grid" },
+  { title: "", images: [i11, i12, i13, i14, i15, i22, i23], layout: "carousel" },
+  // { title: "📸 Candid Clicks", images: [i16, i17, i18, i19, i20], layout: "masonry" },
+  { title: "", images: [i6, i7, i9, i10], layout: "gallery" },
 ];
 
 const BirthdayGallery: React.FC = () => {
@@ -89,20 +89,34 @@ const BirthdayGallery: React.FC = () => {
 )}
 
 
-          {set.layout === "carousel" && (
-            <div className="relative flex gap-4 overflow-x-auto scrollbar-hide py-2 px-1">
-              {set.images.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`Family ${i}`}
-                  className="h-60 rounded-xl shadow-lg min-w-[250px] transition-all duration-300 hover:scale-105"
-                />
-              ))}
-            </div>
-          )}
+{set.layout === "carousel" && (
+  <div className="relative py-10 bg-gradient-to-b from-pink-50 to-yellow-100">
+    <h3 className="text-3xl font-bold text-center text-rose-500 mb-8">🎈 Birthday Moments 🎈</h3>
+    <div className="flex flex-wrap justify-center gap-6 px-4">
+      {set.images.map((img, i) => {
+        const rotate = ['-rotate-3', 'rotate-2', '-rotate-6', 'rotate-1', 'rotate-3'];
+        return (
+          <div
+            key={i}
+            className={`bg-white p-3 rounded-lg shadow-xl w-52 h-auto transform ${rotate[i % rotate.length]} hover:scale-105 transition-all duration-300`}
+          >
+            <img
+              src={img}
+              alt={`Memory ${i}`}
+              className="rounded-md w-full object-cover"
+            />
+            <p className="text-center text-xs mt-2 text-rose-500">📸 Memory #{i + 1}</p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+)}
 
-          {set.layout === "masonry" && (
+
+
+
+          {/* {set.layout === "masonry" && (
             <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
               {set.images.map((img, i) => (
                 <img
@@ -113,20 +127,36 @@ const BirthdayGallery: React.FC = () => {
                 />
               ))}
             </div>
-          )}
+          )} */}
 
-          {set.layout === "gallery" && (
-            <div className="flex justify-center gap-6 flex-wrap">
-              {set.images.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`Special ${i}`}
-                  className="w-64 h-64 object-cover rounded-2xl shadow-xl border-4 border-pink-200 hover:rotate-3 hover:scale-105 transition-all duration-300"
-                />
-              ))}
-            </div>
-          )}
+     {set.layout === "gallery" && (
+  <div className="min-h-screen bg-gradient-to-br from-pink-100 to-yellow-100 py-12 px-4">
+    <h2 className="text-4xl font-extrabold text-center text-pink-700 mb-12 drop-shadow-lg">
+      🎈 Magical Moments
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center">
+      {set.images.map((img, i) => (
+        <div
+          key={i}
+          className="relative w-64 h-72 bg-white rounded-xl p-3 shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-rotate-1"
+        >
+          <img
+            src={img}
+            alt={`Memory ${i}`}
+            className="w-full h-full object-cover rounded-xl border-4 border-pink-200 shadow-inner"
+          />
+          <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-pink-600 font-semibold bg-white px-3 py-1 rounded-full shadow mt-2">
+            🎁 Memory #{i + 1}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+
+
+
         </div>
       ))}
     </div>

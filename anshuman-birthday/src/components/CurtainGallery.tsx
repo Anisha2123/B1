@@ -11,12 +11,13 @@ import i4 from '../assets/i4.jpg';
 import i5 from '../assets/i5.jpg';
 import i6 from '../assets/i6.jpg';
 import i7 from '../assets/i7.jpg';
-
+import Garland from "./Garland";
 const images = [i1, i2, i3, i4, i5, i6, i7];
 
 const CurtainSlider = () => {
   return (
     <div className="curtain-container">
+        {/* <Garland/> */}
       <div className="curtain-bar" />
       <div className="image-strip">
         {[...images, ...images].map((img, idx) => (

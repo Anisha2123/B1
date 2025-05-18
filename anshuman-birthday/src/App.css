@@ -120,7 +120,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 6px;
+  /* height: 6px; */
   width: 100%;
   background-color: #ec4899;
   z-index: 10;
@@ -178,4 +178,31 @@ img{
 
 .curtain-img:hover {
   transform: scale(1.05) rotate(1deg);
+}
+
+
+/* src/styles/garland.css */
+.garland-wrapper {
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.garland-track {
+  animation: garland-scroll 20s linear infinite;
+}
+
+@keyframes garland-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.garland-img {
+  height: auto;
+  max-height: 220px;
+  width: auto;
 }
